@@ -5,34 +5,50 @@ package uniandes.dpoo.aerolinea.modelo;
  */
 public class Ruta
 {
-    // TODO completar
+	private String origen;
+    private String destino;
+    private String horaSalida;
+    private String horaLlegada;
+    private double precioBase;
 
-
-    /**
-     * Dada una cadena con una hora y minutos, retorna los minutos.
-     * 
-     * Por ejemplo, para la cadena '715' retorna 15.
-     * @param horaCompleta Una cadena con una hora, donde los minutos siempre ocupan los dos últimos caracteres
-     * @return Una cantidad de minutos entre 0 y 59
-     */
-    public static int getMinutos( String horaCompleta )
+    public Ruta(String origen, String destino, String horaSalida, String horaLlegada, double precioBase)
     {
-        int minutos = Integer.parseInt( horaCompleta ) % 100;
-        return minutos;
+        this.origen = origen;
+        this.destino = destino;
+        this.horaSalida = horaSalida;
+        this.horaLlegada = horaLlegada;
+        this.precioBase = precioBase;
     }
 
-    /**
-     * Dada una cadena con una hora y minutos, retorna las horas.
-     * 
-     * Por ejemplo, para la cadena '715' retorna 7.
-     * @param horaCompleta Una cadena con una hora, donde los minutos siempre ocupan los dos últimos caracteres
-     * @return Una cantidad de horas entre 0 y 23
-     */
-    public static int getHoras( String horaCompleta )
-    {
-        int horas = Integer.parseInt( horaCompleta ) / 100;
-        return horas;
+    public String getOrigen() { return origen; }
+
+    public String getDestino() { return destino; }
+
+    public String getHoraSalida() { return horaSalida; }
+
+    public String getHoraLlegada() { return horaLlegada; }
+
+    public double getPrecioBase() { return precioBase; }
+
+    
+    public static int getMinutos(String horaCompleta) {
+        return Integer.parseInt(horaCompleta) % 100;
     }
+
+    public static int getHoras(String horaCompleta) {
+        return Integer.parseInt(horaCompleta) / 100;
+    }
+
+    
+    public int getDuracionEnMinutos() {
+        int salidaMin = getHoras(horaSalida) * 60 + getMinutos(horaSalida);
+        int llegadaMin = getHoras(horaLlegada) * 60 + getMinutos(horaLlegada);
+        int duracion = llegadaMin - salidaMin;
+        if (duracion < 0) duracion += 24 * 60; 
+        return duracion;
+    }
+    
+    
 
     
 }

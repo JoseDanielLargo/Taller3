@@ -7,7 +7,44 @@ import org.json.JSONObject;
  */
 public class ClienteCorporativo extends Cliente
 {
-    // TODO completar
+    public static final String CORPORATIVO = "Corporativo";
+    public static final int GRANDE = 1;
+    public static final int MEDIANA = 2;
+    public static final int PEQUENA = 3;
+    
+    protected String nombreEmpresa;
+    protected int tamanoEmpresa;
+    
+    public ClienteCorporativo(String nombreEmpresa, int tamano)
+    {
+        super();
+        this.nombreEmpresa = nombreEmpresa;
+        this.tamanoEmpresa = tamano;
+    }
+    
+    public String getNombreEmpresa()
+    {
+        return nombreEmpresa;
+    }
+
+    public int getTamanoEmpresa()
+    {
+        return tamanoEmpresa;
+    }
+
+    @Override
+    public String getTipoCliente()
+    {
+        return CORPORATIVO;
+    }
+    
+    @Override
+    public String getIdentificador()
+    {
+        return nombreEmpresa;
+    }
+    
+    
     
 
 

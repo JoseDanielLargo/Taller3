@@ -13,6 +13,58 @@ import uniandes.dpoo.aerolinea.exceptions.AeropuertoDuplicadoException;
 public class Aeropuerto
 {
     // TODO completar
+    public static final int RADIO_TERRESTRE = 6371;
+    private static Set<String> codigosUtilizados = new HashSet<>();
+    
+    private String nombre;
+    private String codigo;
+    private String nombreCiudad;
+    private double latitud;
+    private double longitud;
+    
+    public Aeropuerto(String nombre, String codigo, String nombreCiudad, double latitud, double longitud)
+            throws AeropuertoDuplicadoException
+    {
+        if (codigosUtilizados.contains(codigo))
+        {
+            throw new AeropuertoDuplicadoException("Ya existe un aeropuerto con el código: " + codigo);
+        }
+
+        this.nombre = nombre;
+        this.codigo = codigo;
+        this.nombreCiudad = nombreCiudad;
+        this.latitud = latitud;
+        this.longitud = longitud;
+
+        
+        codigosUtilizados.add(codigo);
+    }
+    
+    
+    public String getNombre()
+    {
+        return nombre;
+    }
+
+    public String getCodigo()
+    {
+        return codigo;
+    }
+
+    public String getNombreCiudad()
+    {
+        return nombreCiudad;
+    }
+
+    public double getLatitud()
+    {
+        return latitud;
+    }
+
+    public double getLongitud()
+    {
+        return longitud;
+    }
     
 
     /**
