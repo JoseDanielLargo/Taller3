@@ -17,6 +17,7 @@ import uniandes.dpoo.aerolinea.persistencia.IPersistenciaAerolinea;
 import uniandes.dpoo.aerolinea.persistencia.IPersistenciaTiquetes;
 import uniandes.dpoo.aerolinea.persistencia.TipoInvalidoException;
 import uniandes.dpoo.aerolinea.tiquetes.Tiquete;
+import uniandes.dpoo.aerolinea.modelo.*;
 
 /**
  * En esta clase se organizan todos los aspectos relacionados con una Aerolínea.
@@ -79,6 +80,8 @@ public class Aerolinea
     {
         this.rutas.put( ruta.getCodigoRuta( ), ruta );
     }
+   
+    
 
     /**
      * Agrega un nuevo avión a la aerolínea
@@ -299,7 +302,7 @@ public class Aerolinea
                 throw new Exception("El avión ya está ocupado en esa fecha.");
         }
 
-        Vuelo nuevo = new Vuelo( fecha, ruta, avion );
+        Vuelo nuevo = new Vuelo(ruta, fecha, avion);
         vuelos.add( nuevo );
     }
 

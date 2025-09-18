@@ -10,6 +10,7 @@ public class Ruta
     private String horaSalida;
     private String horaLlegada;
     private double precioBase;
+    private String codigoRuta;
 
     public Ruta(String origen, String destino, String horaSalida, String horaLlegada, double precioBase)
     {
@@ -20,15 +21,23 @@ public class Ruta
         this.precioBase = precioBase;
     }
 
-    public String getOrigen() { return origen; }
+    public String getOrigen() { 
+    	return origen; }
 
-    public String getDestino() { return destino; }
+    public String getDestino() { 
+    	return destino; }
 
-    public String getHoraSalida() { return horaSalida; }
+    public String getHoraSalida() {
+    	return horaSalida; }
 
-    public String getHoraLlegada() { return horaLlegada; }
+    public String getHoraLlegada() { 
+    	return horaLlegada; }
 
-    public double getPrecioBase() { return precioBase; }
+    public double getPrecioBase() { 
+    	return precioBase; }
+    
+    public String getCodigoRuta() { 
+    	return codigoRuta;}
 
     
     public static int getMinutos(String horaCompleta) {

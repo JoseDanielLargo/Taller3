@@ -44,7 +44,7 @@ public class Vuelo {
     }
 
 
-    public int venderTiquetes( Cliente cliente, CalculadoraTarifas calculadora, int cantidad ) throws Exception
+    public int venderTiquetes( int codigo, Vuelo vuelo, Cliente cliente, int tarifa, int cantidad ) throws Exception
     {
         int capacidadDisponible = avion.getCapacidad( ) - tiquetes.size( );
         if( cantidad > capacidadDisponible )
@@ -53,8 +53,7 @@ public class Vuelo {
         int total = 0;
         for( int i = 0; i < cantidad; i++ )
         {
-            int tarifa = calculadora.calcularTarifa( this, cliente );
-            Tiquete t = new Tiquete( this, cliente, tarifa );
+            Tiquete t = new Tiquete(codigo, vuelo, cliente, tarifa );
             tiquetes.add( t );
             cliente.agregarTiquete( t );
             total += tarifa;

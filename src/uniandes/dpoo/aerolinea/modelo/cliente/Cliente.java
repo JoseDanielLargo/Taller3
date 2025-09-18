@@ -4,7 +4,7 @@ package uniandes.dpoo.aerolinea.modelo.cliente;
 import java.util.ArrayList;
 import java.util.List;
 
-import uniandes.dpoo.aerolinea.modelo.Tiquete;
+import uniandes.dpoo.aerolinea.tiquetes.*;
 import uniandes.dpoo.aerolinea.modelo.Vuelo;
 
 
